@@ -1,4 +1,4 @@
-{application, yarick,
+{application, africa,
  [
   {description, ""},
   {vsn, "1"},
@@ -7,6 +7,5 @@
                   kernel,
                   stdlib
                  ]},
-  {mod, { yarick_app, []}},
   {env, []}
  ]}.
