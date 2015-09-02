@@ -5,7 +5,7 @@
 %%% @end
 %%% Created : 21 Aug 2015 by gguthrie@basho.com
 
--module(africa).
+-module(africa_util).
 
 -export([
 	 add_paths/0,
@@ -126,5 +126,4 @@ get_ddl(Statement) ->
     {ok, DDL} = riak_ql_parser:parse(Toks),
     {module, Mod} = riak_ql_ddl_compiler:make_helper_mod(DDL, "/tmp"),
     {DDL, Mod}.
-
 
