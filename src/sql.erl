@@ -1,6 +1,6 @@
 %%% @author    Gordon Guthrie
 %%% @copyright (C) 2015, Basho
-%%% @doc       The API for the africa server
+%%% @doc       The API for the afrika server
 %%%
 %%% @end
 %%% Created :  2 Sep 2015 by gguthrie@basho.com
@@ -15,11 +15,12 @@
 
 test(run) ->
     Calls = make_calls(),
-    [r(X) || X <- Calls],
+    Return = [r(X) || X <- Calls],
+    io:format("~n-test returned~n" ++ [lists:flatten(Return)]),
     ok;
-test(dryrun) ->
+test(drpyrun) ->
     Calls = make_calls(),
-    io:format("Dumping out a set of calls to africa:~n"),
+    io:format("Dumping out a set of calls to afrika:~n"),
     io:format("*************************************~n~n"),
     [io:format(" ~p~n~n", [X]) || X <- Calls],
     io:format("*************************************~n~n"),
@@ -32,15 +33,15 @@ make_calls() ->
      _FirstInsert    = "INSERT INTO keytable "
      ++ "(userid, firstname, lastname, age, account_name) "
      ++ "VALUES ('user1', 'Gordon', 'Guthrie', 52, 'Holiday Money')",
-     _SecondInsertA  = get_second_queries("1st Sept 15", 400),
-     _SecondInsertB  = get_second_queries("2nd Sept 15", -40),
-     _SecondInsertC  = get_second_queries("3rd Sept 15", -20),
+     _SecondInsertA  = get_second_queries("1st-of-Sept-15", 400),
+     _SecondInsertB  = get_second_queries("2nd-of-Sept-15", -40),
+      _SecondInsertC  = get_second_queries("3rd-of-Sept-15", -20),
      _Query          = "SELECT * FROM details INNER JOIN keytable "
      ++ "ON details.userid = keytable.userid"
     ].
 
 r(String) ->
-    africa_srv:run_sql(String).
+    afrika_srv:run_sql(String).
 
 get_primary() ->
     _Statement = "CREATE TABLE keytable "
@@ -54,8 +55,8 @@ get_primary() ->
 get_secondary() ->
     _Statement = "CREATE TABLE details "
 	++ "(userid varchar not null, "
-	++ "date int not null, "
-	++ "amount float not null, "
+	++ "date varchar not null, "
+	++ "amount int not null, "
 	++ "primary key(userid), "
 	++ "foreign key(keytable, userid))".
 

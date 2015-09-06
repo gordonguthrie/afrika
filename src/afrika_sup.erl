@@ -1,4 +1,4 @@
--module(africa_sup).
+-module(afrika_sup).
 
 -behaviour(supervisor).
 
@@ -24,7 +24,7 @@ start_link() ->
 
 init([]) ->
     
-    AfricaSrv = ?CHILD(africa_srv, worker),
+    AfrikaSrv = ?CHILD(afrika_srv, worker),
 
-    {ok, { {one_for_one, 5, 10}, [AfricaSrv]} }.
+    {ok, { {one_for_one, 5, 10}, [AfrikaSrv]} }.
 

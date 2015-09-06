@@ -1,4 +1,4 @@
--module(africa_app).
+-module(afrika_app).
 
 -behaviour(application).
 
@@ -10,7 +10,7 @@
 %% ===================================================================
 
 start(_StartType, _StartArgs) ->
-    africa_sup:start_link().
+    afrika_sup:start_link().
 
 stop(_State) ->
     ok.

@@ -5,7 +5,7 @@
 %%% @end
 %%% Created : 21 Aug 2015 by gguthrie@basho.com
 
--module(africa_util).
+-module(afrika_util).
 
 -export([
 	 add_paths/0,
